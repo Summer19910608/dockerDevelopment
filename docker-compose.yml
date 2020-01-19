@@ -67,8 +67,8 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-    head:
-      container_name: head
+  elastichd:
+      container_name: elastichd
       image: mobz/elasticsearch-head
       ports:
         - "9100:9100"
