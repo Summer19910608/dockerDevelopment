@@ -58,19 +58,18 @@ services:
     command: redis-server --appendonly yes
   elasticsearch:
     container_name: elasticsearch
-    image: daocloud.io/library/elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
     volumes:
       - ./docker/data/elasticsearch:/usr/share/elasticsearch/data
-      #- ./docker/config/elasticsearch:/config/elasticsearch.yml
+      -./docker/config/elasticsearch:/config/elasticsearch.yml
     environment:
       - discovery.type=single-node
     ports:
       - "9200:9200"
       - "9300:9300"
-    elasticsearch-head:
-      container_name: elasticsearch-head
+    head:
+      container_name: head
       image: mobz/elasticsearch-head:5
-      restart: always
       ports:
         - "9100:9100"
       depends_on:
