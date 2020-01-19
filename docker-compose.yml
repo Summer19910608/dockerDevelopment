@@ -74,6 +74,6 @@ services:
       ports:
         - "9100:9100"
       depends_on:
-        - es
+        - elasticsearch
       links:
-        - es:es
+        - elasticsearch:elasticsearch
