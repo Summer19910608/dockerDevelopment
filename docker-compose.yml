@@ -61,7 +61,7 @@ services:
     image: daocloud.io/library/elasticsearch
     volumes:
       - ./docker/data/elasticsearch:/usr/share/elasticsearch/data
-      - ./docker/config/elasticsearch:/config/elasticsearch.yml
+      #- ./docker/config/elasticsearch:/config/elasticsearch.yml
     environment:
       - discovery.type=single-node
     ports:
