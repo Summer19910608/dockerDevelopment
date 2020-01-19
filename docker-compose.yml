@@ -4,6 +4,7 @@ services:
   php:
     container_name: php
     image: registry.cn-beijing.aliyuncs.com/duiying/php7.2:1.0
+    build: ./docker/files/php
     tty: true
     restart: always
     expose:
@@ -58,7 +59,7 @@ services:
     command: redis-server --appendonly yes
   elasticsearch:
     container_name: elasticsearch
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.2
+    image: elasticsearch
     volumes:
       - ./docker/data/elasticsearch:/usr/share/elasticsearch/data
       - ./docker/config/elasticsearch:/config/elasticsearch.yml
