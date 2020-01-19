@@ -1,0 +1,4 @@
+2020/01/16 08:44:38 [emerg] 6#6: host not found in upstream "cgi" in /etc/nginx/conf.d/default.conf:22
+2020/01/16 08:48:14 [notice] 21#21: signal process started
+2020/01/16 08:48:14 [error] 21#21: open() "/var/run/nginx.pid" failed (2: No such file or directory)
+2020/01/16 08:53:45 [emerg] 24#24: open() "/usr/local/nginx/conf/nginx.conf" failed (2: No such file or directory)
