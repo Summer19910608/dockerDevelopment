@@ -57,8 +57,8 @@ services:
       - ./docker/data/redis:/data
     command: redis-server --appendonly yes
   elasticsearch:
-    container_name: elasticsearch
-    build: ./docker/files/elasticsearch
+    image: elasticsearch
+    #build: ./docker/files/elasticsearch
     #volumes:
       #- ./docker/data/elasticsearch:/usr/share/elasticsearch/data
       #- ./docker/config/elasticsearch:/config/elasticsearch.yml
