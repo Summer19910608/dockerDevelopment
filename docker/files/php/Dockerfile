@@ -1,6 +1,6 @@
 FROM php:7.3-fpm
-RUN docker-php-ext-install pdo pdo_mysql mysqli \
 
+RUN docker-php-ext-install pdo pdo_mysql mysqli \
 && pecl install redis-4.2.0 \
 && pecl install swoole \
 && pecl install yaconf \
