@@ -1,8 +1,7 @@
 version: '3'
 services:
  elasticsearch:
-  build: ./docker/files/elasticsearch
-  tty: true
+  image: bolingcavalry/elasticsearch-with-ik:6.5.0
   container_name: elasticsearch
   environment:
    - cluster.name=docker-cluster
@@ -25,8 +24,7 @@ services:
   networks:
    - esnet
  elasticsearch2:
-  build: ./docker/files/elasticsearch
-  tty: true
+  image: bolingcavalry/elasticsearch-with-ik:6.5.0
   container_name: elasticsearch2
   environment:
    - cluster.name=docker-cluster
@@ -48,7 +46,7 @@ services:
   networks:
    - esnet
  head:
-  image: elasticsearch-head:5
+  image: bolingcavalry/elasticsearch-head:6
   container_name: head
   ports:
    - 9100:9100
