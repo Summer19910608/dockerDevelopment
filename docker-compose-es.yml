@@ -4,11 +4,13 @@ services:
   image: bolingcavalry/elasticsearch-with-ik:6.5.0
   container_name: elasticsearch
   environment:
-   - cluster.name=docker-cluster
    - bootstrap.memory_lock=true
+   - ES_JAVA_OPTS=-Xms512m -Xmx512m
+   - discovery.type=single-node
+   - TAKE_FILE_OWNERSHIP=true
    - http.cors.enabled=true
    - http.cors.allow-origin=*
-   - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+   - ES_JAVA_OPTS=-Xms218m -Xmx218m
   ulimits:
    memlock:
     soft: -1
@@ -18,23 +20,6 @@ services:
    - /docker/data/elasticsearch:/usr/share/elasticsearch/data
   ports:
    - 9200:9200
- elasticsearch2:
-  image: bolingcavalry/elasticsearch-with-ik:6.5.0
-  container_name: elasticsearch2
-  environment:
-   - cluster.name=docker-cluster
-   - bootstrap.memory_lock=true
-   - http.cors.enabled=true
-   - http.cors.allow-origin=*
-   - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-   - "discovery.zen.ping.unicast.hosts=elasticsearch"
-  ulimits:
-   memlock:
-    soft: -1
-    hard: -1
-  restart: always
-  volumes:
-   - /docker/data/elasticsearch:/usr/share/elasticsearch/data
  head:
   image: bolingcavalry/elasticsearch-head:6
   container_name: head
