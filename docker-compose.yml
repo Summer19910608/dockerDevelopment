@@ -56,26 +56,3 @@ services:
     volumes:
       - ./docker/data/redis:/data
     command: redis-server --appendonly yes
-  elasticsearch:
-    image: elasticsearch
-    #build: ./docker/files/elasticsearch
-    #volumes:
-      #- ./docker/data/elasticsearch:/usr/share/elasticsearch/data
-      #- ./docker/config/elasticsearch:/config/elasticsearch.yml
-    environment:
-      - bootstrap.memory_lock=true
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - discovery.type=single-node
-      - TAKE_FILE_OWNERSHIP=true
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-  elastichd:
-      container_name: elastichd
-      image: mobz/elasticsearch-head:5
-      ports:
-        - "9100:9100"
-      depends_on:
-        - elasticsearch
-      links:
-        - elasticsearch:elasticsearch
